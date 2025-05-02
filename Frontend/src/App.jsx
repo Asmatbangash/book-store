@@ -1,4 +1,4 @@
-import { Banner, Navbar } from "./components"
+import { Banner, CardSlider, Footer, Navbar } from "./components"
 
 function App() {
 
@@ -6,6 +6,8 @@ function App() {
     <>  
     <Navbar />
      <Banner />
+     <CardSlider />
+     <Footer />
     </>
   )
 }
