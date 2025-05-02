@@ -1,9 +1,12 @@
-import { Navbar } from "./components"
+import { Banner, Navbar } from "./components"
 
 function App() {
 
   return (
-       <Navbar />
+    <>  
+    <Navbar />
+     <Banner />
+    </>
   )
 }
 
