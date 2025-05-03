@@ -7,11 +7,11 @@ import {  book2 } from '../../public/index.js';
 
 function CardSlider() {
     const cards=[
-        {img:book2, title:"Eloquent JavaScript ", desc:"Deeply explores modern JavaScript with examples, helping beginners and advanced learners master programming concepts.", price: ""},
-        {img:book2, title:"Introduction to Computer Science", desc:"Comprehensive guide to computer science fundamentals, including algorithms, data structures, and web development", price: ""},
-        {img:book2, title:"Think Python ", desc:"Beginner-friendly Python book that teaches programming logic and problem-solving through clear, practical examples.", price: ""},
-        {img:book2, title:"Designing Interfaces", desc:"Covers essential user interface patterns and principles for building intuitive, user-centered digital products.", price: ""},
-        {img:book2, title:"Data Structure and algorithms", desc:"Learn key structures, sorting, searching, and algorithm design with real-world Programming examples.", price: ""}
+        {img:book2, title:"Eloquent JavaScript ", desc:"Deeply explores modern JavaScript with examples, helping beginners and advanced learners master programming concepts.", price: "0.00", catogory: "Free"},
+        {img:book2, title:"ICT", desc:"Comprehensive guide to computer science fundamentals, including algorithms, data structures, and web development", price: "0.00", catogory: "Free"},
+        {img:book2, title:"Think Python ", desc:"Beginner-friendly Python book that teaches programming logic and problem-solving through clear, practical examples.", price: "0.00", catogory: "Free"},
+        {img:book2, title:"Designing Interfaces", desc:"Covers essential user interface patterns and principles for building intuitive, user-centered digital products.", price: "0.00", catogory: "Free"},
+        {img:book2, title:"Data Structure and algorithms", desc:"Learn key structures, sorting, searching, and algorithm design with real-world Programming examples.", price: "0.00", catogory: "Free"}
     ]
     var settings = {
         dots: true,
@@ -54,8 +54,8 @@ function CardSlider() {
         <div className="  slider-container my-10 ">
           <Slider {...settings}>
             {
-                cards.map((card)=>(                    
-                        <Card img={card.img} title={card.title} desc={card.desc} price={card.price}/>
+                cards.map((data)=>(                    
+                        <Card data={data} />
                 ))
             }
           </Slider>
