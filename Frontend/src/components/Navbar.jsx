@@ -30,7 +30,7 @@ function Navbar() {
   const navItem = [
     {name: "Home", href: "/"},
     {name: "about", href: "/about"},
-    {name: "course", href: "/courses"},
+    {name: "books", href: "/books"},
     {name: "contact", href: "/contact"}
   ]
   return (

@@ -1,0 +1,41 @@
+[
+{
+    "img":"https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?uid=R167837725&semt=ais_hybrid&w=740",
+    "title":"Eloquent JavaScript ",
+    "desc":"Deeply explores modern JavaScript with examples, helping beginners and advanced learners master programming concepts.",
+    "price": "0.00", 
+    "catogory": "Free"
+},
+{
+    "img":"https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?uid=R167837725&semt=ais_hybrid&w=740", 
+    "title":"ICT", 
+    "desc":"Comprehensive guide to computer science fundamentals, including algorithms, data structures, and web development", 
+    "price": "0.00", 
+    "catogory": "Free"
+},
+{
+    "img":"https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?uid=R167837725&semt=ais_hybrid&w=740", 
+    "title":"Think Python ", 
+    "desc":"Beginner-friendly Python book that teaches programming logic and problem-solving through clear, practical examples.", 
+    "price": "0.00", "catogory": "Free"
+},
+{
+    "img":"https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?uid=R167837725&semt=ais_hybrid&w=740", 
+    "title":"Designing Interfaces", 
+    "desc":"Covers essential user interface patterns and principles for building intuitive, user-centered digital products.", 
+    "price": "0.00", 
+    "catogory": "Free"},
+{
+    "img":"https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?uid=R167837725&semt=ais_hybrid&w=740", 
+    "title":"Data Structure and algorithms", 
+    "desc":"Learn key structures, sorting, searching, and algorithm design with real-world Programming examples.", "price": "0.00", 
+    "catogory": "Free"
+},
+{
+   "img":"https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?uid=R167837725&semt=ais_hybrid&w=740", 
+   "title":"Data Structure and algorithms", 
+   "desc":"Learn key structures, sorting, searching, and algorithm design with real-world Programming examples.", 
+   "price": "0.00", 
+   "catogory": "Free"
+}
+]
