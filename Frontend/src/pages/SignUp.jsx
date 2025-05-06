@@ -1,6 +1,7 @@
 import React from 'react'
 import { InputBox, Button } from '../components'
 import { Link } from 'react-router-dom'
+import LogIn from './LogIn'
 
 function SignUp() {
   return (
@@ -24,7 +25,9 @@ function SignUp() {
     <Button type="submit" className="bg-[#7747ff] w-max m-auto px-6 py-2 rounded text-white text-sm font-normal" text='Submit'/>
 
 </form>
-<div className="text-sm text-center mt-[1.6rem]">Already have an account? <Link to='/login' className="text-sm text-[#7747ff]" >login</Link></div>
+<div className="text-sm text-center mt-[1.6rem]">Already have an account? <a className="text-sm text-[#7747ff] cursor-pointer" onClick={()=> document.getElementById("my_modal_3").showModal()} >login</a>
+</div>
+<LogIn />
 </div>
 
   )

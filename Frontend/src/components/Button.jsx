@@ -1,8 +1,8 @@
 import React from 'react'
 
-function Button({type="submit",text="button", className=""}) {
+function Button({type="submit",text="button", className="", onClick}) {
   return (
-    <button type={type} className={`btn cursor-pointer ${className}`}>{text}</button>
+    <button type={type} className={`cursor-pointer ${className}`} onClick={onClick}>{text}</button>
   )
 }
 

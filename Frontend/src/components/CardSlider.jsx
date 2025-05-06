@@ -3,7 +3,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Card from './Card';
-import {  book2 } from '../../public/index.js';
 import apiSample from '../../public/apiSample.json'
 
 function CardSlider() {

@@ -38,12 +38,12 @@ function About() {
             { name: "Mark Lee", role: "Community Manager" },
             { name: "Emily Clark", role: "Events Coordinator" },
           ].map((member, idx) => (
-            <div key={idx} className="bg-gray-100 p-4 rounded-lg text-center shadow-sm">
+            <div key={idx} className="bg-gray-100 p-4 rounded-lg text-center shadow-sm dark:bg-slate-700 dark:text-white">
               <div className="w-24 h-24 mx-auto bg-gray-300 rounded-full mb-3">
                 <img src={emojiImg} alt="" className='rounded-full'/>
               </div>
               <h3 className="font-semibold text-lg">{member.name}</h3>
-              <p className="text-sm text-gray-600">{member.role}</p>
+              <p className="text-sm dark:text-white text-gray-600">{member.role}</p>
             </div>
           ))}
         </div>

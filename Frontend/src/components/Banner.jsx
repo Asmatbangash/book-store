@@ -37,7 +37,7 @@ function Banner() {
      </label>
 </form>
       </div>
-      <Button text='Get started' className='rounded-full'/>
+      <Button text='Get started' className='bg-pink-600 w-max m-auto px-6 py-2 rounded text-white text-sm font-normal'/>
     </div>
   </div>
 </div>
