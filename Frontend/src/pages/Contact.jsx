@@ -6,7 +6,10 @@ function Contact() {
     <div className="w-screen-full h-screen mt-10 flex justify-center items-center flex-col ">
       <form className="bg-white w-[90vw] md:w-[50vw] p-6 rounded-lg shadow-md dark:bg-slate-900 dark:text-white">
         <div className="mb-4">
-          <label for="title" className="block text-gray-700 text-sm font-bold mb-2 dark:text-white">
+          <label
+            for="title"
+            className="block text-gray-700 text-sm font-bold mb-2 dark:text-white"
+          >
             Full Name
           </label>
           <InputBox
@@ -16,7 +19,10 @@ function Contact() {
           />
         </div>
         <div className="mb-4">
-          <label for="title" className="block text-gray-700 text-sm font-bold mb-2 dark:text-white">
+          <label
+            for="title"
+            className="block text-gray-700 text-sm font-bold mb-2 dark:text-white"
+          >
             Email
           </label>
           <InputBox

@@ -1,9 +1,15 @@
-import React from 'react'
+import React from "react";
 
-function Button({type="submit",text="button", className="", onClick}) {
+function Button({ type = "submit", text = "button", className = "", onClick }) {
   return (
-    <button type={type} className={`cursor-pointer ${className}`} onClick={onClick}>{text}</button>
-  )
+    <button
+      type={type}
+      className={`cursor-pointer ${className}`}
+      onClick={onClick}
+    >
+      {text}
+    </button>
+  );
 }
 
-export default Button
+export default Button;

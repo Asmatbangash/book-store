@@ -5,12 +5,4 @@ import Books from "./Books";
 import LogIn from "./LogIn";
 import SignUp from "./SignUp";
 
-export {
-    Home,
-    About,
-    Contact,
-    Books,
-    LogIn,
-    SignUp,
-    
-}
+export { Home, About, Contact, Books, LogIn, SignUp };

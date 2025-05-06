@@ -1,20 +1,23 @@
-import React from 'react';
-import { emojiImg } from '../../public';
+import React from "react";
+import { emojiImg } from "../../public";
 
 function About() {
   return (
     <div className="min-h-screen my-20 bg-white text-gray-800 px-6 py-12 max-w-5xl mx-auto dark:bg-slate-900 dark:text-white">
       {/* Heading */}
       <h1 className="text-3xl font-bold text-left mb-10">
-      That's the corner for discovering great books, supporting local authors, and diving into <span className='text-pink-500'>
-      new worlds :) </span> 
+        That's the corner for discovering great books, supporting local authors,
+        and diving into <span className="text-pink-500">new worlds :) </span>
       </h1>
 
       {/* Our Story */}
       <section className="mb-12">
         <h2 className="text-2xl font-semibold mb-3">Our Story</h2>
         <p className="text-base leading-relaxed">
-          Founded in 2015, BookNest began as a small independent bookstore with a big dream – to create a space where book lovers of all ages could connect. Over the years, we've grown into a beloved community hub, hosting book clubs, author events, and more.
+          Founded in 2015, BookNest began as a small independent bookstore with
+          a big dream – to create a space where book lovers of all ages could
+          connect. Over the years, we've grown into a beloved community hub,
+          hosting book clubs, author events, and more.
         </p>
       </section>
 
@@ -38,12 +41,17 @@ function About() {
             { name: "Mark Lee", role: "Community Manager" },
             { name: "Emily Clark", role: "Events Coordinator" },
           ].map((member, idx) => (
-            <div key={idx} className="bg-gray-100 p-4 rounded-lg text-center shadow-sm dark:bg-slate-700 dark:text-white">
+            <div
+              key={idx}
+              className="bg-gray-100 p-4 rounded-lg text-center shadow-sm dark:bg-slate-700 dark:text-white"
+            >
               <div className="w-24 h-24 mx-auto bg-gray-300 rounded-full mb-3">
-                <img src={emojiImg} alt="" className='rounded-full'/>
+                <img src={emojiImg} alt="" className="rounded-full" />
               </div>
               <h3 className="font-semibold text-lg">{member.name}</h3>
-              <p className="text-sm dark:text-white text-gray-600">{member.role}</p>
+              <p className="text-sm dark:text-white text-gray-600">
+                {member.role}
+              </p>
             </div>
           ))}
         </div>
@@ -63,6 +71,6 @@ function About() {
       </section>
     </div>
   );
-};
+}
 
 export default About;

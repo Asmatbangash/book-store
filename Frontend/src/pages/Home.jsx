@@ -1,13 +1,13 @@
-import React from 'react'
-import { Banner, CardSlider } from '../components'
+import React from "react";
+import { Banner, CardSlider } from "../components";
 
 function Home() {
   return (
     <>
-    <Banner />
-    <CardSlider />
+      <Banner />
+      <CardSlider />
     </>
-  )
+  );
 }
 
-export default Home
+export default Home;

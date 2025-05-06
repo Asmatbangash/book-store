@@ -6,12 +6,4 @@ import Card from "./Card";
 import CardSlider from "./CardSlider";
 import Footer from "./Footer";
 
-export {
-    Navbar,
-    Banner,
-    InputBox,
-    Button,
-    Card,
-    CardSlider,
-    Footer
-}
+export { Navbar, Banner, InputBox, Button, Card, CardSlider, Footer };
