@@ -3,7 +3,7 @@ import { emojiImg } from '../../public';
 
 function About() {
   return (
-    <div className="min-h-screen my-20 bg-white text-gray-800 px-6 py-12 max-w-5xl mx-auto">
+    <div className="min-h-screen my-20 bg-white text-gray-800 px-6 py-12 max-w-5xl mx-auto dark:bg-slate-900 dark:text-white">
       {/* Heading */}
       <h1 className="text-3xl font-bold text-left mb-10">
       That's the corner for discovering great books, supporting local authors, and diving into <span className='text-pink-500'>

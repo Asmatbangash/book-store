@@ -1,8 +1,8 @@
 import React from 'react'
 
-function Button({text='button', className=""}) {
+function Button({type="submit",text="button", className=""}) {
   return (
-    <button className={`btn btn-primary ${className}`}>{text}</button>
+    <button type={type} className={`btn cursor-pointer ${className}`}>{text}</button>
   )
 }
 
