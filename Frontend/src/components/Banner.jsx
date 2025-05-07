@@ -27,7 +27,7 @@ function Banner() {
           </p>
           <div>
             <form className="form relative mb-7 outline-none">
-              <label className="input validator join-item dark:bg-gray-400">
+              <label className="input validator join-item dark:bg-gray-800">
                 <svg
                   className="h-[1em] opacity-50"
                   xmlns="http://www.w3.org/2000/svg"
@@ -47,7 +47,7 @@ function Banner() {
                 <InputBox
                   type="email"
                   placeholder="@email.com"
-                  className="input w-full rounded-full px-8 py-3 focus:outline-none focus:border-blue-500 placeholder-gray-400 transition-all duration-300 dark:bg-gray-400 dark:placeholder-gray-100 dark:text-gray-100"
+                  className="input w-full rounded-full px-8 py-3 focus:outline-none focus:border-blue-500 placeholder-gray-400 transition-all duration-300 dark:bg-gray-800 dark:placeholder-gray-100 dark:text-gray-100"
                 />
               </label>
             </form>

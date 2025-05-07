@@ -100,7 +100,7 @@ function Navbar() {
       <form className="w-100 form relative max-sm:hidden">
         <InputBox
           type="search"
-          className="input w-full-screen rounded-full px-4 py-1 focus:outline-none focus:border-blue-500 placeholder-gray-400 transition-all duration-300 shadow-md dark:bg-gray-400 dark:text-gray-100 dark:placeholder-gray-100"
+          className="input w-full-screen rounded-full px-4 py-1 focus:outline-none focus:border-blue-500 placeholder-gray-400 transition-all duration-300 shadow-md dark:bg-gray-800 dark:text-gray-100 dark:placeholder-gray-100"
           placeholder="search..."
         />
       </form>

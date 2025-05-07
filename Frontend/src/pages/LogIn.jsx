@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { InputBox, Button } from "../components";
 
 function LogIn() {
+  const [data, setData] = useState({ email: "", password: "" });
+  const handlSubmit = (e) => {
+    e.preventDefault();
+    setData({ email: "", password: "" });
+  };
+
   return (
     <>
       <dialog id="my_modal_3" className="modal">
@@ -12,7 +18,10 @@ function LogIn() {
               ✕
             </button>
           </form>
-          <form className="flex justify-center items-center flex-col gap-3">
+          <form
+            onSubmit={handlSubmit}
+            className="flex justify-center items-center flex-col gap-3"
+          >
             <div className="block relative">
               <label
                 for="email"
@@ -25,6 +34,8 @@ function LogIn() {
                 id="email"
                 className="rounded border border-gray-200 text-sm w-sm font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2  ring-gray-900 outline-0 max-sm:w-72"
                 placeholder="abc@email.com"
+                value={data.email}
+                onChange={(e) => setData({ ...data, email: e.target.value })}
               />
             </div>
             <div className="block relative">
@@ -39,6 +50,8 @@ function LogIn() {
                 id="password"
                 className="rounded border border-gray-200 text-sm w-sm font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2 ring-gray-900 outline-0 max-sm:w-72"
                 placeholder="*****"
+                value={data.password}
+                onChange={(e) => setData({ ...data, password: e.target.value })}
               />
             </div>
             <div>
