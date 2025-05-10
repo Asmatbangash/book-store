@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Card } from "../components/index.js";
-import apiSample from "../../public/apiSample.json";
+import { BookStoreContext } from "../context/BookStoreContex.jsx";
 
 function Books() {
-  const apiSampleData = apiSample.map((data) => data);
+  const { books } = useContext(BookStoreContext);
   return (
     <div className="w-screen-full min-h-screen dark:bg-slate-900 dark:text-white">
       <div className="flex justify-center items-center flex-col my-25">
@@ -24,7 +24,7 @@ function Books() {
         </p>
       </div>
       <div className="flex justify-center items-center flex-wrap">
-        {apiSampleData.map((data) => (
+        {books.map((data) => (
           <Card
             data={data}
             key=""

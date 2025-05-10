@@ -36,10 +36,6 @@ function Navbar() {
     };
   }, []);
 
-  useEffect(() => {
-    console.log("Sticky state changed:", sticky);
-  }, [sticky]);
-
   const navItem = [
     { name: "Home", href: "/" },
     { name: "about", href: "/about" },
