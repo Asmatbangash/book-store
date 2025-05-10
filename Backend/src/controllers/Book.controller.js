@@ -22,4 +22,12 @@ const addBook = appCrashHandler(async (req, res, next) => {
     .json(new apiResponse(200, book, "book stored successfully!."));
 });
 
-export { addBook };
+const getBooks = appCrashHandler(async (req, res, next) => {
+  const books = await Book.find();
+
+  return res
+    .status(200)
+    .json(new apiResponse(200, books, "books fetched successfully!."));
+});
+
+export { addBook, getBooks };
