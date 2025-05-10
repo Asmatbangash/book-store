@@ -17,9 +17,7 @@ const generateAccessAndRefreshToken = async (userId) => {
     }
 
     const accessToken = user.generateAccessToken();
-    console.log("accessToken  : ", accessToken);
     const refreshToken = user.generateRefreshToken();
-    console.log("refreshToken : ", refreshToken);
 
     user.refreshToken = refreshToken;
     await user.save({ validateBeforeSave: false });
@@ -82,7 +80,9 @@ const userLogin = appCrashHandler(async (req, res, next) => {
     throw new apiError(401, "invalid password");
   }
 
-  const { accessToken, refreshToken } = generateAccessAndRefreshToken(user._id);
+  const { accessToken, refreshToken } = await generateAccessAndRefreshToken(
+    user._id
+  );
   const loggedUser = await User.findById(user._id);
 
   return res
@@ -102,4 +102,24 @@ const userLogin = appCrashHandler(async (req, res, next) => {
     );
 });
 
-export { userRegister, userLogin };
+const userLogOut = appCrashHandler(async (req, res, next) => {
+  await User.findByIdAndUpdate(
+    req.user?._id,
+    {
+      $unset: {
+        refreshToken: 1,
+      },
+    },
+    {
+      new: true,
+    }
+  );
+
+  return res
+    .status(200)
+    .clearCookie("accessToken", option)
+    .clearCookie("refreshToken", option)
+    .json(new apiResponse(200, {}, "user logOut Sucessfully!"));
+});
+
+export { userRegister, userLogin, userLogOut };
