@@ -1,9 +1,9 @@
-class apiResponse{
-    constructor(statusCode, msg, data){
-        this.statusCode = statusCode
-        this.msg = msg
-        this.data = data
-    }
+class apiResponse {
+  constructor(statusCode, data, msg) {
+    this.statusCode = statusCode;
+    this.msg = msg;
+    this.data = data;
+  }
 }
 
-export {apiResponse}
+export { apiResponse };
