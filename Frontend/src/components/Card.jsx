@@ -6,7 +6,10 @@ function Card({ data, className = "" }) {
       className={`card bg-base-100 w-92 shadow-sm mb-4 hover:scale-105 duration-200 cursor-pointer ${className} `}
     >
       <figure>
-        <img src={data.img} alt="Shoes" />
+        <img
+          src="https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?uid=R167837725&semt=ais_hybrid&w=740"
+          alt="books"
+        />
       </figure>
       <div className="card-body">
         <h2 className="card-title">

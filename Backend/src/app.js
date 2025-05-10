@@ -15,4 +15,8 @@ app.use(cookieParser());
 import { userRoutes } from "./routes/User.routes.js";
 app.use("/api/v1/user", userRoutes);
 
+// book routes
+import { bookRoutes } from "./routes/Book.route.js";
+app.use("/api/v1/book", bookRoutes);
+
 export default app;
