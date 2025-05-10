@@ -51,7 +51,6 @@ userSchema.methods.generateAccessToken = function () {
       _id: this._id,
     },
     process.env.ACCESS_TOKEN_SECRETE,
-    console.log(process.env.ACCESS_TOKEN_EXPIRY),
     {
       expiresIn: process.env.ACCESS_TOKEN_EXPIRY,
     }

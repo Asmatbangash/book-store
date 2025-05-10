@@ -9,14 +9,25 @@ const option = {
 };
 
 const generateAccessAndRefreshToken = async (userId) => {
-  const user = await User.findById(userId);
-  const accessToken = user.generateAccessToken();
-  const refreshToken = user.generateRefreshToken();
+  try {
+    const user = await User.findById(userId);
 
-  user.refreshToken = refreshToken;
-  await user.save({ validateBeforeSave: flase });
+    if (!user) {
+      throw new apiError(404, "User not found");
+    }
 
-  return { accessToken, refreshToken };
+    const accessToken = user.generateAccessToken();
+    console.log("accessToken  : ", accessToken);
+    const refreshToken = user.generateRefreshToken();
+    console.log("refreshToken : ", refreshToken);
+
+    user.refreshToken = refreshToken;
+    await user.save({ validateBeforeSave: false });
+
+    return { accessToken, refreshToken };
+  } catch (error) {
+    throw new apiError(401, "there are some error to generate tokens");
+  }
 };
 
 const userRegister = appCrashHandler(async (req, res, next) => {
