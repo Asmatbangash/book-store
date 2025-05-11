@@ -7,10 +7,10 @@ function Banner() {
   return (
     <div className="w-screen-full my-20 mx-auto max-sm:px-0 px-6 hero bg-white min-h-screen md:min-h-0 dark:bg-slate-900 dark:text-white">
       <div className="hero-content w-1/1 flex-col lg:flex-row-reverse">
-        <div className="w-screen-full">
-          <img src={bookImg} className="w-screen-full h-full rounded-lg " />
+        <div className="w-full">
+          <img src={bookImg} className="w-screen-full h-full rounded-lg" />
         </div>
-        <div className="w-screen-full">
+        <div className="w-full">
           <h1 className="text-4xl font-bold">
             Hello!, Welcome here to learn something{" "}
             <span className="text-pink-600">new everyday!</span>

@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import { About, Contact, Books, Home, LogIn, SignUp } from "./pages/index.js";
+import BookStoreProvider from "./context/BookStoreContex.jsx";
 
 let router = createBrowserRouter([
   {
@@ -38,7 +39,9 @@ let router = createBrowserRouter([
   },
 ]);
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>
+  <BookStoreProvider>
+    <StrictMode>
+      <RouterProvider router={router} />
+    </StrictMode>
+  </BookStoreProvider>
 );

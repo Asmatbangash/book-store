@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Card from "./Card";
-import apiSample from "../../public/apiSample.json";
+import { BookStoreContext } from "../context/BookStoreContex";
 
 function CardSlider() {
-  const sampleApiData = apiSample.filter((data) => data.catogory === "Free");
+  const { books } = useContext(BookStoreContext);
+  const freeBooks = books.data?.filter(
+    (freebook) => freebook.catogory === "Free"
+  );
   var settings = {
     dots: true,
     infinite: false,
@@ -43,7 +46,7 @@ function CardSlider() {
   };
   return (
     <div className="w-screen-full mx-auto px-8 max-sm:px-3 dark:bg-slate-900 dark:text-white ">
-      <h1 className="text-3xl font-bold">Free Offered Courses</h1>
+      <h1 className="text-3xl font-bold">Free Offered books</h1>
       <p>
         Access a wide range of free course books covering programming, design,
         business, and more—perfect for enhancing your knowledge and supporting
@@ -52,9 +55,9 @@ function CardSlider() {
         preparation, and practical skill development across multiple
         professional and academic fields.
       </p>
-      <div className="  slider-container my-10 ">
+      <div className="slider-container my-10 ">
         <Slider {...settings}>
-          {sampleApiData.map((data) => (
+          {freeBooks?.map((data) => (
             <Card
               data={data}
               key=""

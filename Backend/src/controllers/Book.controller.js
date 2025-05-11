@@ -4,9 +4,8 @@ import { apiResponse } from "../utils/apiResponse.utils.js";
 import { apiError } from "../utils/apiError.utils.js";
 
 const addBook = appCrashHandler(async (req, res, next) => {
-  const { title, desc, price, catogory } = req.body;
-
-  if ([title, desc, price, catogory].some((data) => data.trim() === "")) {
+  const { title, desc, price } = req.body;
+  if ([title, desc, price].some((data) => data.trim() === "")) {
     throw new apiError(401, "all field are required!...");
   }
 
@@ -14,7 +13,7 @@ const addBook = appCrashHandler(async (req, res, next) => {
     title: title,
     desc: desc,
     price: price,
-    catogory: catogory,
+    catogory: price > 0 ? "Premium" : "Free",
   });
 
   return res

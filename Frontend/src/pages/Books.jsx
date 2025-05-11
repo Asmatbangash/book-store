@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
-import { Card } from "../components/index.js";
+import { Button, Card } from "../components/index.js";
 import { BookStoreContext } from "../context/BookStoreContex.jsx";
+import AddBookForm from "../components/AddBookForm.jsx";
 
 function Books() {
   const { books } = useContext(BookStoreContext);
@@ -22,9 +23,15 @@ function Books() {
           choosing us as your reading companion. Happy browsing, and we hope you
           discover a story that stays with you forever!
         </p>
+        <Button
+          text="add-book"
+          className="bg-pink-600 w-max m-auto px-6 py-2 rounded text-white text-sm font-normal mt-7"
+          onClick={() => document.getElementById("addBook").showModal()}
+        />
+        <AddBookForm />
       </div>
       <div className="flex justify-center items-center flex-wrap">
-        {books.map((data) => (
+        {books.data?.map((data) => (
           <Card
             data={data}
             key=""

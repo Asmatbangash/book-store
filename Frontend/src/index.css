@@ -2,3 +2,8 @@
 @plugin "daisyui";
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+
+.dark .slick-dots li button:before {
+  color: white !important;
+}

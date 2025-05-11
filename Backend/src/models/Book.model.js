@@ -17,7 +17,7 @@ const bookSchema = new mongoose.Schema(
     catogory: {
       type: String,
       required: true,
-      enum: ["Free", "Paid"],
+      enum: ["Free", "Premium"],
     },
   },
   { timestamps: true }

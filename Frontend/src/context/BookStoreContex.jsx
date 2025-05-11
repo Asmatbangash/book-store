@@ -24,7 +24,7 @@ function BookStoreProvider({ children }) {
   }, []);
 
   return (
-    <BookStoreContext.Provider value={books}>
+    <BookStoreContext.Provider value={{ books }}>
       {children}
     </BookStoreContext.Provider>
   );

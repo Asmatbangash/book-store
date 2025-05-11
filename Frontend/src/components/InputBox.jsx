@@ -7,7 +7,6 @@ function InputBox({
   value,
   onChange,
 }) {
-  console.log(value);
   return (
     <input
       className={`cursor-pointer border-black  ${className}`}
