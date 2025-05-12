@@ -1,13 +1,33 @@
 import React, { useState } from "react";
 import { InputBox, Button } from "../components";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 
 function LogIn() {
   const [data, setData] = useState({ email: "", password: "" });
-  const handlSubmit = (e) => {
-    e.preventDefault();
-    setData({ email: "", password: "" });
-  };
+  const [errorMsg, setErrorMsg] = useState();
+  const navigate = useNavigate();
 
+  const handlSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const userData = {
+        email: data.email,
+        password: data.password,
+      };
+      const response = await axios.post(
+        "http://localhost:5050/api/v1/user/login",
+        userData
+      );
+      alert(response.data.msg);
+      setData({ email: "", password: "" });
+      navigate("/");
+      window.location.reload();
+    } catch (error) {
+      const errorMsg = error.response?.data?.msg || "something went wrong";
+      setErrorMsg(errorMsg);
+    }
+  };
   return (
     <>
       <dialog id="my_modal_3" className="modal">
@@ -23,6 +43,7 @@ function LogIn() {
             onSubmit={handlSubmit}
             className="flex justify-center items-center flex-col gap-3 dark:bg-slate-900 "
           >
+            {errorMsg ? errorMsg : null}
             <div className="block relative">
               <label
                 for="email"
@@ -68,10 +89,10 @@ function LogIn() {
           </form>
           <div className="text-center text-black my-3 dark:text-white">
             Don't have an account?
-            <a className="text-sm text-[#7747ff]" href="/sign-up">
+            <Link className="text-sm text-[#7747ff]" to="/sign-up">
               {" "}
               Sign up
-            </a>
+            </Link>
           </div>
         </div>
       </dialog>

@@ -18,9 +18,9 @@ function Card({ data, className = "" }) {
         </h2>
         <p>{data.desc}</p>
         <div className="card-actions flex justify-between">
-          <div className="badge badge-outline">${data.price}</div>
+          <div className="badge badge-outline">$ {data.price}</div>
           <div className="badge badge-outline py-4 hover:bg-pink-500 hover:text-amber-50 cursor-pointer duration-500 ease-in-out">
-            Buy now
+            Read
           </div>
         </div>
       </div>

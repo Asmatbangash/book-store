@@ -38,13 +38,13 @@ const userRegister = appCrashHandler(async (req, res, next) => {
   const { name, email, password, address } = req.body;
 
   if ([name, email, password, address].some((field) => field.trim() === "")) {
-    throw new apiError(400, "all fields are required");
+    return res.status(401).json(new apiError(400, "all fields are requred."));
   }
 
   const existedUser = await User.findOne({ email });
 
   if (existedUser) {
-    throw new apiError(401, "this email arlready existed!");
+    return res.status(401).json(new apiError(409, "email already exist."));
   }
 
   const user = await User.create({
@@ -52,7 +52,7 @@ const userRegister = appCrashHandler(async (req, res, next) => {
     email: email,
     password: password,
     address: address,
-  }).select("-password");
+  });
 
   return res
     .status(200)
@@ -68,18 +68,18 @@ const userLogin = appCrashHandler(async (req, res, next) => {
   const { email, password } = req.body;
 
   if (!(email && password)) {
-    throw new apiError(401, "all fields are required!.");
+    return res
+      .status(401)
+      .json(new apiError(400, "all fields are required!..."));
   }
   const user = await User.findOne({ email });
   if (!user) {
-    throw new apiError(401, "Invalid email.");
+    return res.status(401).json(new apiError(401, "invalid email!..."));
   }
-
-  const isPasswordValid = user.isPasswordCorrect(password);
-  if (!isPasswordValid) {
-    throw new apiError(401, "invalid password");
+  const isPasswordValid = await user.isPasswordCorrect(password);
+  if (isPasswordValid === false) {
+    return res.status(401).json(new apiError(401, "invalid password!..."));
   }
-
   const { accessToken, refreshToken } = await generateAccessAndRefreshToken(
     user._id
   );

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { InputBox, Button } from "../components";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import LogIn from "./LogIn";
+import axios from "axios";
 
 function SignUp() {
   const [data, setData] = useState({
@@ -10,13 +11,34 @@ function SignUp() {
     password: "",
     address: "",
   });
+  const [errorMsg, setErrorMsg] = useState();
 
-  const handlSubmit = (e) => {
+  const navigate = useNavigate();
+
+  const handlSubmit = async (e) => {
     e.preventDefault();
-    setData({ name: "", email: "", password: "", address: "" });
+    try {
+      const userData = {
+        name: data.name,
+        email: data.email,
+        password: data.password,
+        address: data.address,
+      };
+      const response = await axios.post(
+        "http://localhost:5050/api/v1/user/register",
+        userData
+      );
+      setData(response.data);
+      setData({ name: "", email: "", password: "", address: "" });
+      navigate("/");
+      alert(response.data.msg);
+    } catch (error) {
+      const errorMsg = error.response?.data?.msg || "something went wrong";
+      setErrorMsg(errorMsg);
+    }
   };
   return (
-    <div className="max-w-screen mt-10 relative flex  flex-col p-4 rounded-md text-black bg-white">
+    <div className="max-w-screen relative flex  flex-col p-4 rounded-md text-black bg-white">
       <div className="text-2xl font-bold mb-2 text-[#1e0e4b] text-center">
         Welcome To <span className="text-[#7747ff]">book-store</span>
       </div>
@@ -27,6 +49,7 @@ function SignUp() {
         onSubmit={handlSubmit}
         className="flex justify-center items-center flex-col gap-3"
       >
+        {errorMsg ? errorMsg : null}
         <div className="block relative">
           <label
             for="name"
