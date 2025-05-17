@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { InputBox, Button } from "../components";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { BookStoreContext } from "../context/BookStoreContex";
 
 function LogIn() {
+  const { userlogIn } = useContext(BookStoreContext);
   const [data, setData] = useState({ email: "", password: "" });
   const [errorMsg, setErrorMsg] = useState();
   const navigate = useNavigate();
@@ -17,12 +19,18 @@ function LogIn() {
       };
       const response = await axios.post(
         "http://localhost:5050/api/v1/user/login",
-        userData
+        userData,
+        {
+          withCredentials: true, // important for sending/receiving cookies
+        }
       );
-      alert(response.data.msg);
-      setData({ email: "", password: "" });
-      navigate("/");
-      window.location.reload();
+      if (response.data.statusCode) {
+        userlogIn(response.data.data);
+        alert(response.data.msg);
+        setData({ email: "", password: "" });
+        navigate("/");
+      }
+      // window.location.reload();
     } catch (error) {
       const errorMsg = error.response?.data?.msg || "something went wrong";
       setErrorMsg(errorMsg);
@@ -46,7 +54,7 @@ function LogIn() {
             {errorMsg ? errorMsg : null}
             <div className="block relative">
               <label
-                for="email"
+                htmlFor="email"
                 className="block text-gray-600 cursor-text text-sm leading-[140%] font-normal mb-2 dark:text-white"
               >
                 Email
@@ -58,11 +66,12 @@ function LogIn() {
                 placeholder="abc@email.com"
                 value={data.email}
                 onChange={(e) => setData({ ...data, email: e.target.value })}
+                required={true}
               />
             </div>
             <div className="block relative">
               <label
-                for="password"
+                htmlFor="password"
                 className="block text-gray-600 cursor-text text-sm leading-[140%] font-normal mb-2  dark:text-white"
               >
                 Password
@@ -74,6 +83,7 @@ function LogIn() {
                 placeholder="*****"
                 value={data.password}
                 onChange={(e) => setData({ ...data, password: e.target.value })}
+                required={true}
               />
             </div>
             <div>

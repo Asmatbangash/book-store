@@ -7,6 +7,7 @@ const verifyUser = appCrashHandler(async (req, res, next) => {
   const token =
     req.cookies?.accessToken ||
     req.header("Authurization")?.replace("Bearare ", "");
+  console.log(token);
 
   if (!token) {
     throw new apiError(401, "un-authorized request!");

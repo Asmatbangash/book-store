@@ -6,12 +6,13 @@ function InputBox({
   placeholder = "input",
   value,
   onChange,
+  required,
 }) {
   return (
     <input
       className={`cursor-pointer border-black  ${className}`}
       placeholder={placeholder}
-      required="true"
+      required={required}
       type={type}
       value={value}
       onChange={onChange}

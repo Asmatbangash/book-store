@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import InputBox from "./InputBox";
 import { Link } from "react-router-dom";
 import LogIn from "../pages/LogIn";
 import Button from "./Button";
+import { BookStoreContext } from "../context/BookStoreContex";
+import LogOut from "../pages/LogOut";
 
 function Navbar() {
+  const { user } = useContext(BookStoreContext);
+
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
   );
@@ -125,13 +129,17 @@ function Navbar() {
         </svg>
       </label>
       <div className="mx-2">
-        <Button
-          text="logIn"
-          className="btn btn-neutral dark:bg-blue-500 text-sm dark:hover:bg-blue-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-          onClick={() => document.getElementById("my_modal_3").showModal()}
-        >
-          logIn
-        </Button>
+        {user ? (
+          <LogOut />
+        ) : (
+          <Button
+            text="logIn"
+            className="btn btn-neutral dark:bg-blue-500 text-sm dark:hover:bg-blue-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            onClick={() => document.getElementById("my_modal_3").showModal()}
+          >
+            logIn
+          </Button>
+        )}
       </div>
       <LogIn />
     </div>

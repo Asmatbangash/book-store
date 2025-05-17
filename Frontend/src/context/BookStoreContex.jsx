@@ -4,11 +4,24 @@ import axios from "axios";
 
 export const BookStoreContext = createContext({
   books: [],
+  signUp: () => {},
+  userlogIn: () => {},
+  userlogOut: () => {},
 });
 
 function BookStoreProvider({ children }) {
-  const [books, setBooks] = useState([]);
+  const [user, setUser] = useState();
+  const usersignUp = () => {};
 
+  const userlogIn = (user) => {
+    setUser(user);
+  };
+
+  const userlogOut = () => {
+    setUser(null);
+  };
+
+  const [books, setBooks] = useState([]);
   useEffect(() => {
     const getBooks = async () => {
       try {
@@ -24,7 +37,9 @@ function BookStoreProvider({ children }) {
   }, []);
 
   return (
-    <BookStoreContext.Provider value={{ books }}>
+    <BookStoreContext.Provider
+      value={{ books, user, usersignUp, userlogIn, userlogOut }}
+    >
       {children}
     </BookStoreContext.Provider>
   );
